@@ -1,0 +1,108 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #FAFAF8;
+  --foreground: #1A1A1A;
+  --muted-surface: #F5F3F0;
+  --muted-foreground: #6B6B6B;
+  --accent: #B8860B;
+  --secondary-accent: #D4A84B;
+  --border: #E8E4DF;
+  --card: #FFFFFF;
+  --ring: #B8860B;
+  --surface-strong: #F5F3F0;
+  --surface-soft: #FAFAF8;
+  --ink-soft: #4D4D4D;
+  --container-width: 72rem;
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.25rem;
+  --shadow-soft: 0 0 0 1px rgba(26, 26, 26, 0.04), 0 10px 24px rgba(26, 26, 26, 0.04);
+}
+
+@layer base {
+  * {
+    @apply box-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    letter-spacing: -0.01em;
+    text-rendering: optimizeLegibility;
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0) 30%);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-display);
+    letter-spacing: -0.04em;
+    line-height: 1.08;
+    text-wrap: balance;
+    color: var(--foreground);
+  }
+
+  p,
+  li,
+  label,
+  input,
+  button,
+  textarea,
+  select {
+    font-family: var(--font-sans);
+  }
+
+  code,
+  pre,
+  kbd,
+  samp {
+    font-family: var(--font-mono);
+  }
+
+  a {
+    @apply transition-colors duration-150 ease-out;
+  }
+
+  ::selection {
+    background: rgba(184, 134, 11, 0.16);
+  }
+}
+
+@layer components {
+  .govbridge-panel {
+    @apply rounded-lg border border-border bg-card;
+  }
+
+  .govbridge-rule {
+    @apply border-t border-border;
+  }
+}
+
+@layer utilities {
+  .focus-ring {
+    @apply focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[rgba(184,134,11,0.18)] focus-visible:ring-offset-2;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
